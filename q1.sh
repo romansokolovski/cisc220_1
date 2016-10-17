@@ -1,7 +1,7 @@
 #!/bin/bash
 echo Calculator:
 prog=1
-
+echo test
 while (( $prog==1 ))
 do
 	echo Please insert a number: 
