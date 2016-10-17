@@ -11,7 +11,7 @@ do
 done
 
 stat -c "%A %n" * * >$fileName
-
+echo "$fileName created!"
 
 
 
