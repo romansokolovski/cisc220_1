@@ -30,8 +30,7 @@ do
 			echo Error! Please insert an operation: 
 			read op
 			if [ "$op" == ":q" ]; then
-				echo Thanks for using my calculator
-				break 2
+				break 3
 			fi
 		done
 		echo Please insert a number:
