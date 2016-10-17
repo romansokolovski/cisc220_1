@@ -9,10 +9,11 @@ car3length=${#car3}
 flagwhile=0
 while (( $flagwhile==0 ));
 do
-	read -p  "User1 press 1 to move forward, User2 press 2 to move forward, User3 press 3 to move forward" -n 1  userInput
+	read -p  "User1 press 1 to move forward, User2 press 2 to move forward, User3 press 3 to move forward, Enter 4 to quit" -n 1  userInput
 	clear
 	if [[ -n ${userInput//[0-9]/} ]]; then
-		break
+		echo -e "You have entered input that is not a number..."
+		continue
 	elif [[ $userInput -eq 1 ]]; then
 		car1="~$car1";
 		car1length=$(($car1length+1));
@@ -31,6 +32,10 @@ do
 		if [[ $car3length -ge 43 ]]; then
 			flagwhile=3;
 		fi
+	elif [[ $userInput -eq 4 ]]; then
+		echo -e "Thank you for playing this game."
+		flagwhile=4;
+		break;
 	else
 	echo "You just entered an invalid input. Please try again"
 	fi
@@ -43,8 +48,10 @@ if [[ flagwhile -eq 1 ]]; then
 	echo -e "Congratulations User1. You win!!"
 elif [[ flagwhile -eq 2 ]]; then
 	echo -e "Congratulations User2. You win!!"
-else
+elif [[ flagwhile -eq 3 ]]; then
 	echo -e "Congratulations User3. You win!!"
+else
+	echo -e "You quit the race before it was over. There was no winner."
 fi
 
 
